@@ -1,3 +1,5 @@
+import "babel-polyfill";
+
 import xrange from 'xrange';
 import XRegExp from 'xregexp';
 

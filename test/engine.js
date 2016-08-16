@@ -1,8 +1,7 @@
 import "babel-polyfill";
 
 import should from 'should';
-import {IntentDeterminationEngine} from '../src/engine';
-import {IntentBuilder} from '../src/intent';
+import {IntentDeterminationEngine, IntentBuilder} from '../'; //
 
 describe('IntentDeterminationEngine', function() {
   before(function() {

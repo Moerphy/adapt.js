@@ -1,11 +1,19 @@
 {
-  "name": "adaptjs",
+  "name": "node-adapt",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+
+  "repository": { 
+    "type": "git",
+    "url": "https://github.com/Moerphy/adapt.js"
+  },
+
   "scripts": {
     "test": "mocha --compilers js:babel-register",
-    "start": "babel-watch  app.js"
+    "start": "babel-watch  app.js",
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -16,7 +24,6 @@
     "babel-plugin-transform-react-jsx": "^6.8.0",
     "babel-plugin-transform-regenerator": "^6.11.4",
     "babel-plugin-transform-runtime": "^6.12.0",
-    "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.6",
@@ -25,9 +32,12 @@
     "should": "^11.1.0"
   },
   "author": "",
-  "license": "MIT",
+  "license": "LGPL",
   "dependencies": {
     "xrange": "^1.0.1",
-    "xregexp": "^3.1.1"
+    "xregexp": "^3.1.1",
+    "babel-polyfill": "^6.13.0"
   }
 }
+
+
