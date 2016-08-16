@@ -1,5 +1,3 @@
-import "babel-polyfill";
-
 import {BronKerboschExpander} from './expander';
 import {EventEmitter} from 'events';
 

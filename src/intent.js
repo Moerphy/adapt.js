@@ -1,6 +1,3 @@
-import "babel-polyfill";
-
-
 /*
 def is_entity(tag, entity_name):
     for entity in tag.get('entities'):

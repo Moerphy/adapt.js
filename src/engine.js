@@ -1,5 +1,3 @@
-import "babel-polyfill";
-
 import {EventEmitter} from 'events';
 
 import XRegExp from 'xregexp';
