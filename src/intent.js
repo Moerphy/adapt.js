@@ -56,7 +56,7 @@ function resolve_one_of(tags, at_least_one){
       if(resolution.hasOwnProperty(entity_type)){
         last_end_index = resolution[entity_type][resolution[entity_type].length-1].get('end_token');
       }
-      [tag,  value] = find_first_tag(tags, entity_type, last_end_index);
+      let [tag,  value] = find_first_tag(tags, entity_type, last_end_index);
       if(!tag){
         break;
       }else{
@@ -66,7 +66,7 @@ function resolve_one_of(tags, at_least_one){
         resolution[entity_type].push(tag);
       }
     }
-    if(resolution.length == possible_resolution.length){
+    if(Object.keys(resolution).length == possible_resolution.length){
       return resolution;
     }
   }
@@ -93,7 +93,9 @@ class IntentBuilder{
   @return: this
   */
   one_of(){
-    this.at_least_one.push(Array.prototype.slice.call(arguments));
+    
+    //Array.push.apply(this.at_least_one, Array.prototype.slice.call(arguments));
+    this.at_least_one.push( Array.prototype.slice.call(arguments));
     return this;
   }
   /**
@@ -178,15 +180,15 @@ class Intent{
         result['confidence'] = 0.0;
         return result;
       }else{
-        for(let key of best_resolution){
+        for(let key in best_resolution){
           result[key] = best_resolution[key][0].get('key'); // TODO: at least one must support aliases
           intent_confidence += 1.0;
         }
       }
     }
 
-    for(let [optional_type, attribute_name] in this.optional){
-      let [optional_tag, canonical_form] = find_first_tag(local_tags, optional_type)
+    for(let [optional_type, attribute_name] of this.optional){
+      let [optional_tag, canonical_form] = find_first_tag(local_tags, optional_type);
       if(!optional_tag ||  result.hasOwnProperty(attribute_name) ){
         continue;
       }

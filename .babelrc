@@ -1,0 +1,10 @@
+{
+  "presets": [ "es2015", "stage-0" ],
+  "plugins": ["babel-plugin-transform-object-rest-spread", "transform-regenerator"],
+  "env": {
+    "production": {
+      "presets": ["es2015"]
+    }
+  },
+  "sourceMaps": "inline"
+}

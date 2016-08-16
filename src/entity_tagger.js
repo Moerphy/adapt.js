@@ -71,6 +71,7 @@ class EntityTagger{
         let local_trie = new Trie();
         for(let regex_entity of this.regex_entities){
           let groups = regexGroups(XRegExp.exec(part, regex_entity), regex_entity);
+          //console.log("Regex: ", regex_entity);
           for(let key in groups){
             let match_str = groups[key];
             local_trie.insert(match_str, [match_str, key]);
@@ -123,6 +124,7 @@ function regexGroups(match, regex) {
   if(match){
     var x = regex.xregexp;
     (x && x.captureNames || []).forEach(function(name) {
+
       if (name) {
         o[name] = match[name];
       }

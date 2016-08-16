@@ -205,6 +205,7 @@ class BronKerboschExpander{
   }
 
   expand(tags, clique_scoring_func=undefined){
+    var that = this;
     let lattice = new Lattice();
     let overlapping_spans = [];
 
@@ -218,7 +219,7 @@ class BronKerboschExpander{
       if(overlapping_spans.length > 0 && end_token_index() >= tag['start_token']){
         overlapping_spans.push(tag);
       }else if(overlapping_spans.length > 1){
-        let cliques = this._sub_expand(overlapping_spans);
+        let cliques = that._sub_expand(overlapping_spans);
         if(clique_scoring_func){
           cliques = Array.from(cliques).sort(function(a, b){
             let aval = -1 * clique_scoring_func(a);
