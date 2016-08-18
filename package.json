@@ -1,6 +1,6 @@
 {
   "name": "node-adapt",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/Moerphy/adapt.js"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-register",
+    "test": "npm run compile; mocha --compilers js:babel-register",
     "start": "babel-watch  app.js",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
@@ -33,6 +33,7 @@
   "author": "",
   "license": "LGPL",
   "dependencies": {
+    "heap": "^0.2.6",
     "xrange": "^1.0.1",
     "xregexp": "^3.1.1"
   }
