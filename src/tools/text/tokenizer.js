@@ -15,7 +15,7 @@ class EnglishTokenizer{
 
   tokenize(str){
     let s = str;
-    s = s.replace('\t', " ", s);
+    s = s.replace(/\s/gm, " ");
     s = s.replace(new RegExp("(" + regex_separator + ")", 'g'), " $1 ");
     s = s.replace(new RegExp("([^0-9]),", 'g'), "$1 , ");
     s = s.replace(new RegExp(",([^0-9])", 'g'), " , $1");

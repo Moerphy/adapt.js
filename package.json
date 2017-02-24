@@ -1,6 +1,6 @@
 {
   "name": "node-adapt",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "",
   "main": "lib/index.js",
   "repository": {
@@ -33,6 +33,7 @@
   "author": "",
   "license": "LGPL",
   "dependencies": {
+    "babel-runtime": "^6.11.6",
     "heap": "^0.2.6",
     "xrange": "^1.0.1",
     "xregexp": "^3.1.1"
